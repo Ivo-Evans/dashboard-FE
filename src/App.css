@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background-image: url(/Assets/Background.png);
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .App-logo {

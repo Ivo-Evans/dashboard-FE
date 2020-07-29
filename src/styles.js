@@ -1,0 +1,1 @@
+export const narrowPage = "500px"

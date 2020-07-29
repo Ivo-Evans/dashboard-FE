@@ -9,6 +9,7 @@ import './App.css';
 
 function App() {
   return (
+      <div className="App">
     <BrowserRouter>
         <Switch>                
             <Route path="/signup">
@@ -25,6 +26,7 @@ function App() {
         
         </Switch>
     </BrowserRouter>
+    </div>
   );
 }
 
