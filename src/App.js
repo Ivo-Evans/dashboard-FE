@@ -3,22 +3,26 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { Home } from "./pages/Home"
 import { Login } from "./pages/Login"
 import { Signup } from "./pages/Signup"
+import { ProtectedRoute } from "./components/ProtectedRoute"
 
 import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
-        <Switch>
-            <Route path="/login">
+        <Switch>                
+            <Route path="/signup">
                 <Signup />
             </Route>
-            <Route path="/signup">
+
+            <Route path="/login">
                 <Login />
             </Route>
-            <Route path="/">
+            
+            <ProtectedRoute path="/">
                 <Home />
-            </Route>
+            </ProtectedRoute>
+        
         </Switch>
     </BrowserRouter>
   );
