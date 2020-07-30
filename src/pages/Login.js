@@ -13,6 +13,7 @@ export const Login = () => {
 
     const handleSubmission = (event) => {
         event.preventDefault()
+        setError("")
         const formData = {username, password}
         fetchJSON({
             url: urls.backend,
@@ -21,13 +22,11 @@ export const Login = () => {
             data: formData,
         })
         .then(res => {
-            console.log(res)
             localStorage.setItem("JWT", res.token)
             history.push("/")
 
         })
         .catch((err) => {
-            console.log(err)
             setError("We could not log you in. Check your username and password.")
         })
 
