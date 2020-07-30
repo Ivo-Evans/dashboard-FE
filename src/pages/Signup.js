@@ -3,7 +3,7 @@ import FormInput from "../components/forms/FormInput"
 import * as sc from "../components/forms/styled-components"
 import { useHistory } from "react-router-dom"
 import fetchJSON from "../utils/fetchJSON"
-import * as urls from "../variables/urls"
+import * as origins from "../variables/origins"
 
 export const Signup = () => {
     const history = useHistory();
@@ -21,8 +21,7 @@ export const Signup = () => {
             setError("The passwords must match")
         }
         fetchJSON({
-            url: urls.backend,
-            endpoint: "/signup",
+            url: origins.backend + "/signup",
             method: "POST",
             data: formData,
         })

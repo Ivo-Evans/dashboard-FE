@@ -2,7 +2,7 @@ import React from 'react'
 import FormInput from "../components/forms/FormInput"
 import * as sc from "../components/forms/styled-components"
 import fetchJSON from "../utils/fetchJSON"
-import * as urls from "../variables/urls"
+import * as origins from "../variables/origins"
 import { useHistory } from "react-router-dom"
 
 export const Login = () => {
@@ -16,8 +16,7 @@ export const Login = () => {
         setError("")
         const formData = {username, password}
         fetchJSON({
-            url: urls.backend,
-            endpoint: "/login",
+            url: origins.backend + "/login",
             method: "POST",
             data: formData,
         })
