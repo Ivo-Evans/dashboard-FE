@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { narrowPage, yellow } from "../../styles.js";
+import { narrowPage, yellow, errorRed } from "../../variables/styles";
 
 export const FormInputBand = styled.div`
   display: inline-flex;
@@ -61,3 +61,7 @@ export const submitButton = styled.button`
       filter: grayscale(20%);
   }
 `;
+
+export const FormError = styled.p`
+  color: ${errorRed}
+`
