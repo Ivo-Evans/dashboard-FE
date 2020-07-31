@@ -3,6 +3,7 @@ import styled from "styled-components";
 import * as styles from "../variables/styles";
 import fetchJSON from "../utils/fetchJSON";
 import * as origins from "../variables/origins";
+import plusButton from "../Assets/Plus_button_small.png";
 
 /* todo (hehe):
 
@@ -25,13 +26,20 @@ const TodoText = styled.input``;
 
 const TodoStatus = styled.input``;
 
+const PlusButton = styled.button`
+  margin: 1em;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  float: left;
+`;
+
 export const Todos = ({ todos, setTodos }) => {
   const [editTodoError, setEditTodoError] = React.useState("");
+  const endpoint = "/todos";
 
   const changeTodoStatus = (todo) => {
-      setEditTodoError("")
+    setEditTodoError("");
     const newTodo = { ...todo, completed: !todo.completed };
-    const endpoint = "/todos";
     fetchJSON({
       url: origins.backend + endpoint,
       method: "PUT",
@@ -69,8 +77,7 @@ export const Todos = ({ todos, setTodos }) => {
   };
 
   const submitTodoEdit = (todo) => {
-      setEditTodoError("")
-    const endpoint = "/todos";
+    setEditTodoError("");
     fetchJSON({
       url: origins.backend + endpoint,
       method: "PUT",
@@ -84,12 +91,28 @@ export const Todos = ({ todos, setTodos }) => {
     });
   };
 
+  const addTodo = () => {
+    fetchJSON({
+      url: origins.backend + endpoint,
+      method: "POST",
+      token: true,
+    })
+      .then((newTodo) => {
+        setTodos([...todos, newTodo]);
+      })
+      .catch((err) => {
+        setEditTodoError(
+          "Hmm, we had trouble contacting the server. Check back in a few minutes."
+        );
+      });
+  };
+
   return (
     <TodoPage>
       <h1>Tasks</h1>
       {editTodoError}
       {todos.map((todo) => (
-        <Todo>
+        <Todo key={todo.id}>
           <TodoText
             type="text"
             onChange={(e) => editTodo(e, todo)}
@@ -97,7 +120,7 @@ export const Todos = ({ todos, setTodos }) => {
             value={todo.todo}
           />
           <TodoStatus
-            onClick={() => {
+            onChange={() => {
               changeTodoStatus(todo);
             }}
             type="checkbox"
@@ -105,7 +128,9 @@ export const Todos = ({ todos, setTodos }) => {
           />
         </Todo>
       ))}
+      <PlusButton onClick={addTodo}>
+        <img alt="add another todo" src={plusButton} />
+      </PlusButton>
     </TodoPage>
   );
 };
-
