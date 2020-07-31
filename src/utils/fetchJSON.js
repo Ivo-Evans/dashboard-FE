@@ -11,6 +11,5 @@ export default async function fetchJSON({url, method="GET", data=false, token=fa
         options.headers.authorization = token
     }
     const query = await fetch(url, options)
-    console.log(query)
     return query.json()
 }

@@ -2,19 +2,17 @@ import React from 'react'
 import DashboardGrid from "../components/dashboard/DashboardGrid"
 import DashboardCard from "../components/dashboard/DashboardCard"
 import WeatherCard from "../components/dashboard/WeatherCard"
+import PhotoCard from "../components/dashboard/PhotoCard/PhotoCard"
+
 // import useClothes from "../hooks/useClothes"
 import useUsername from "../hooks/useUsername"
-import useWeather from "../hooks/useWeather"
 
-export const Home = () => {
+
+export const Home = ({weather, photos}) => {
     const [username, setUsername] = React.useState("")
     useUsername(setUsername)
 
-    const [weather, setWeather] = React.useState("")
-    useWeather(setWeather)
 
-    // const [clothes, setClothes] = React.useState(null)
-    // useClothes(setClothes)
 
     return (
         <div>
@@ -23,7 +21,7 @@ export const Home = () => {
                 <WeatherCard title="Weather" weather={weather}/>
                 <DashboardCard title="News"/>
                 <DashboardCard title="Sport"/>
-                <DashboardCard title="Photos"/>
+                <PhotoCard title="Photos" photos={photos}/>
                 <DashboardCard title="Tasks"/>
                 <DashboardCard title="Clothes"/>
             </DashboardGrid>
