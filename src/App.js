@@ -22,7 +22,7 @@ function App() {
 
     const [todos, setTodos] = React.useState([])
     useTodos(setTodos)
-    
+
     // const [clothes, setClothes] = React.useState(null)
     // useClothes(setClothes)
 
@@ -43,7 +43,7 @@ function App() {
             </ProtectedRoute>
 
             <ProtectedRoute path="/todos">
-                <Todos todos={todos} />
+                <Todos todos={todos} setTodos={setTodos}/>
             </ProtectedRoute>
 
             <ProtectedRoute path="/">

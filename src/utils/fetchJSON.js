@@ -1,4 +1,4 @@
-export default async function fetchJSON({url, method="GET", data=false, token=false}) {
+export default async function fetchJSON({url, method="GET", data=false, token=false, noRes=false}) {
     const options = {
         method,
         headers: {
@@ -11,5 +11,5 @@ export default async function fetchJSON({url, method="GET", data=false, token=fa
         options.headers.authorization = token
     }
     const query = await fetch(url, options)
-    return query.json()
+    return noRes ? query : query.json()
 }
