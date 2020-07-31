@@ -15,7 +15,7 @@ import './App.css';
 
 function App() {
     const [weather, setWeather] = React.useState({})
-    useWeather(setWeather)
+    // useWeather(setWeather)
 
     const [photos, setPhotos] = React.useState([])
     usePhotos(setPhotos)

@@ -20,9 +20,15 @@ const Todo = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 3px solid white;
+  margin: 2em 0;
 `;
 
-const TodoText = styled.input``;
+const TodoText = styled.input`
+background-color: rgba(0, 0, 0, 0);
+border: none;
+color: white;
+font-size: 1.115em;
+`;
 
 const TodoStatus = styled.input``;
 
@@ -84,7 +90,7 @@ export const Todos = ({ todos, setTodos }) => {
       data: todo,
       token: true,
       noRes: true,
-    }).catch((err) => {
+    }).catch(() => {
       setEditTodoError(
         "Hmm, we had trouble contacting the server. Check back in a few minutes."
       );

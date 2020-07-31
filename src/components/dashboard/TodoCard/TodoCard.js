@@ -17,14 +17,15 @@ const TodoStatus = styled.input`
 `
 
 const TodoCard = ({ title, todos }) => {
-    console.log(todos)
   return (
       <sc.CardLink to="/todos">
     <sc.Card>
       <sc.Title>{title}</sc.Title>
     <sc.Contents> 
       {todos.slice(0, 3).map(todo => (
-          <Todo>
+          <Todo
+          key={todo.id}
+          >
             <TodoText>{todo.todo}</TodoText>
             <TodoStatus 
             type="checkbox"
