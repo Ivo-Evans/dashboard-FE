@@ -10,6 +10,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute"
 import useWeather from "./hooks/useWeather"
 import usePhotos from "./hooks/usePhotos"
 import useTodos from "./hooks/useTodos"
+import useWarmers from "./hooks/useWarmers"
 
 import './App.css';
 
@@ -25,6 +26,9 @@ function App() {
 
     // const [clothes, setClothes] = React.useState(null)
     // useClothes(setClothes)
+
+    const [warmers, setWarmers] = React.useState({})
+    useWarmers(setWarmers)
 
   return (
       <div className="App">
@@ -51,6 +55,7 @@ function App() {
                 weather={weather}
                 photos={photos}
                 todos={todos}
+                warmers={warmers}
                 />
             </ProtectedRoute>
 
