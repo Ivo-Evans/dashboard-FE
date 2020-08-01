@@ -3,12 +3,15 @@ import PropTypes from "prop-types";
 import * as sc from "../styled-components";
 import styled from "styled-components";
 
-const NewsCard = ({ title }) => {
+const NewsCard = ({ title, news }) => {    
   return (
     <sc.CardLink to="/news">
       <sc.Card>
         <sc.Title>{title}</sc.Title>
-        <sc.Contents></sc.Contents>
+        <sc.Contents>
+        {news?.title && <h4>{news.title}</h4>}
+        {news?.title && <p>{news.description[0]}</p>}
+        </sc.Contents>
       </sc.Card>
     </sc.CardLink>
   );
