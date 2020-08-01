@@ -1,10 +1,11 @@
 import React from "react"
 
-function useUsername(setUsername) {
+function useUsername(setUsername, loggedIn) {
     React.useEffect(() => {
+        if (!loggedIn) { return }
         const username = localStorage.getItem("username")
         setUsername(username || "")
-    }, [setUsername])
+    }, [setUsername, loggedIn])
 }
 
 export default useUsername

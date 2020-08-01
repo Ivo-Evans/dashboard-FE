@@ -15,20 +15,19 @@ import useWarmers from "./hooks/useWarmers"
 import './App.css';
 
 function App() {
+    const [loggedIn, setLoggedIn] = React.useState(false)
+
     const [weather, setWeather] = React.useState({})
-    // useWeather(setWeather)
+    // useWeather(setWeather, loggedIn)
 
     const [photos, setPhotos] = React.useState([])
-    usePhotos(setPhotos)
+    usePhotos(setPhotos, loggedIn)
 
     const [todos, setTodos] = React.useState([])
-    useTodos(setTodos)
-
-    // const [clothes, setClothes] = React.useState(null)
-    // useClothes(setClothes)
+    useTodos(setTodos, loggedIn)
 
     const [warmers, setWarmers] = React.useState({})
-    useWarmers(setWarmers)
+    useWarmers(setWarmers, loggedIn)
 
   return (
       <div className="App">
@@ -42,15 +41,15 @@ function App() {
                 <Login />
             </Route>
             
-            <ProtectedRoute path="/photos">
+            <ProtectedRoute path="/photos" setLoggedIn={setLoggedIn}>
                 <Photos photos={photos} setPhotos={setPhotos} />
             </ProtectedRoute>
 
-            <ProtectedRoute path="/todos">
+            <ProtectedRoute path="/todos" setLoggedIn={setLoggedIn}>
                 <Todos todos={todos} setTodos={setTodos}/>
             </ProtectedRoute>
 
-            <ProtectedRoute path="/">
+            <ProtectedRoute path="/" setLoggedIn={setLoggedIn}>
                 <Home 
                 weather={weather}
                 photos={photos}
