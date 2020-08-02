@@ -1,3 +1,5 @@
 export const backend = "http://localhost:5000"
-export const weather = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org"
+export const weather = "http://api.openweathermap.org"
 export const weatherIcons = "http://openweathermap.org"
+export const news = "http://feeds.bbci.co.uk/news/rss.xml#"
+export const proxy = "https://cors-anywhere.herokuapp.com/"

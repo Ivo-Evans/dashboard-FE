@@ -16,7 +16,7 @@ const Photo = styled.img`
 `;
 
 export const Photos = ({photos, setPhotos}) => {
-    usePhotos(setPhotos)
+    // usePhotos(setPhotos)
     const [file, setFile] = React.useState()
     const handleFile = (event) => {
         // guard clause
@@ -27,7 +27,6 @@ export const Photos = ({photos, setPhotos}) => {
         event.preventDefault()
         // guard clause, e.g. you must upload a file
         const formData = new FormData
-        console.log(file)
         formData.append("file", file)
         fetchPhoto(formData)
     }

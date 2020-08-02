@@ -5,10 +5,13 @@ import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
 import { Photos } from "./pages/Photos";
 import { Todos } from "./pages/Todos";
+import { Sport } from "./pages/Sport"
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 import useWeather from "./hooks/useWeather";
 import useNews from "./hooks/useNews"
+import useTeamNames from "./hooks/useTeamNames"
+import useTeamVictories from "./hooks/useTeamVictories"
 import usePhotos from "./hooks/usePhotos";
 import useTodos from "./hooks/useTodos";
 import useWarmers from "./hooks/useWarmers";
@@ -19,10 +22,19 @@ function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
 
   const [weather, setWeather] = React.useState({});
-  // useWeather(setWeather, loggedIn)
+  useWeather(setWeather, loggedIn)
 
   const [news, setNews] = React.useState({})
   useNews(setNews, loggedIn)
+
+
+  const [currentTeam, setCurrentTeam] = React.useState("")
+
+  const [teamNames, setTeamNames] = React.useState([])
+  useTeamNames(setTeamNames, setCurrentTeam, loggedIn)
+
+  const [teamVictories, setTeamVictories] = React.useState([])
+  useTeamVictories(setTeamVictories, currentTeam, loggedIn)
 
   const [photos, setPhotos] = React.useState([]);
   usePhotos(setPhotos, loggedIn);
@@ -45,6 +57,15 @@ function App() {
             <Login />
           </Route>
 
+          <ProtectedRoute path="/sports" setLoggedIn={setLoggedIn}>
+            <Sport 
+            teamNames={teamNames}
+            currentTeam={currentTeam}
+            setCurrentTeam={setCurrentTeam} 
+            teamVictories={teamVictories}
+            />
+          </ProtectedRoute>  
+
           <ProtectedRoute path="/photos" setLoggedIn={setLoggedIn}>
             <Photos photos={photos} setPhotos={setPhotos} />
           </ProtectedRoute>
@@ -56,10 +77,12 @@ function App() {
           <ProtectedRoute path="/" setLoggedIn={setLoggedIn}>
             <Home
               weather={weather}
+              news={news}
+              currentTeam={currentTeam}
+              teamVictories={teamVictories}
               photos={photos}
               todos={todos}
               warmers={warmers}
-              news={news}
             />
           </ProtectedRoute>
         </Switch>
