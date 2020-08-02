@@ -28,6 +28,7 @@ const WeatherCard = ({ title, weather }) => {
         <WeatherTopRow>
           <img
             src={`${origins.weatherIcons}/img/wn/${weather?.weather[0]?.icon}@2x.png`}
+            alt={weather?.weather[0]?.icon}
           />
           <WeatherTemperature>{weather?.main?.temp}°</WeatherTemperature>
         </WeatherTopRow>

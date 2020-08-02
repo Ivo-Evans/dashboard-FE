@@ -2,7 +2,6 @@ import React from 'react'
 import styled from "styled-components"
 import * as sc from "../components/forms/styled-components"
 import fetchPhoto from "../utils/fetchPhoto"
-import usePhotos from "../hooks/usePhotos"
 
 const PhotoFlex = styled.div`
   display: flex;
@@ -16,7 +15,6 @@ const Photo = styled.img`
 `;
 
 export const Photos = ({photos, setPhotos}) => {
-    // usePhotos(setPhotos)
     const [file, setFile] = React.useState()
     const handleFile = (event) => {
         // guard clause
@@ -26,7 +24,7 @@ export const Photos = ({photos, setPhotos}) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         // guard clause, e.g. you must upload a file
-        const formData = new FormData
+        const formData = new FormData()
         formData.append("file", file)
         fetchPhoto(formData)
     }

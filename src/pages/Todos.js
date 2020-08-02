@@ -5,12 +5,6 @@ import fetchJSON from "../utils/fetchJSON";
 import * as origins from "../variables/origins";
 import plusButton from "../Assets/Plus_button_small.png";
 
-/* todo (hehe):
-
-a plus button at the bottom left, which, when clicked, sends a post request to the database, creating an empty todo, and then appending that todo to the list of frontend todos.
-
-*/
-
 const TodoPage = styled.main`
   max-width: ${styles.mediumPage};
   margin: 0 auto;

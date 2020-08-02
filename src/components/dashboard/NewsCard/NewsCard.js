@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import * as sc from "../styled-components";
-import styled from "styled-components";
 
 const NewsCard = ({ title, news }) => {    
   return (
