@@ -8,7 +8,7 @@ export const CardLink = styled(Link)`
 `
 
 export const Card = styled.div`
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
   border: 1px solid ${styles.yellow};
   overflow: hidden;
   border-radius: 3%;

@@ -3,6 +3,7 @@ import styled from "styled-components"
 import * as sc from "../components/forms/styled-components"
 import fetchPhoto from "../utils/fetchPhoto"
 
+
 const PhotoFlex = styled.div`
   display: flex;
   flex-wrap: wrap;
