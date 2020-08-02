@@ -22,6 +22,7 @@ background-color: rgba(0, 0, 0, 0);
 border: none;
 color: white;
 font-size: 1.115em;
+width: 100%;
 `;
 
 const TodoStatus = styled.input``;
