@@ -3,13 +3,23 @@ import PropTypes from "prop-types";
 import * as sc from "../styled-components";
 import styled from "styled-components";
 
-const SportsCard = ({ title, currentTeam }) => {
+const SportsCard = ({ title, currentTeam, teamVictories }) => {
+    let teamVictory
+    if (teamVictories[0] && currentTeam) {
+        if (teamVictories[0]?.away_team === currentTeam) {
+            teamVictory = `${currentTeam} recently beat ${teamVictories[0].home_team} in an away game.`
+        } else {
+            teamVictory = `${currentTeam} recently beat ${teamVictories[0].away_team} on their home ground.`  
+        }
+    }
+    
   return (
     <sc.CardLink to="/sports">
       <sc.Card>
         <sc.Title>{title}</sc.Title>
         <sc.Contents>
-            {currentTeam && <h2>{currentTeam}</h2>}
+            <h2>{currentTeam}</h2>
+            <p>{teamVictory}</p>
         </sc.Contents>
       </sc.Card>
     </sc.CardLink>
