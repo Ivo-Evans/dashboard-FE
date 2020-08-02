@@ -4,8 +4,6 @@ import * as sc from "../components/forms/styled-components"
 import * as styles from "../variables/styles"
 import fetchPhoto from "../utils/fetchPhoto"
 
-import { useHistory} from 'react-router-dom'
-
 const PhotoFlex = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +19,6 @@ const Photo = styled.img`
 `;
 
 export const Photos = ({photos, setPhotos}) => {
-    const history = useHistory()
     const [file, setFile] = React.useState()
     const handleFile = (event) => {
         // guard clause

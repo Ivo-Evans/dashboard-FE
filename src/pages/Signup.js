@@ -31,7 +31,7 @@ export const Signup = () => {
 
         })
         .catch((err) => {
-            setError("We could not sign you up. Did you fill in all fields?")
+            setError("This user already exists")
         })
 
     }
