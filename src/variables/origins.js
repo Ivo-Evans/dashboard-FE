@@ -1,4 +1,4 @@
-export const backend = "https://therapy-box.herokuapp.com"
+export const backend = "http://localhost:5000"
 export const weather = "http://api.openweathermap.org"
 export const weatherIcons = "http://openweathermap.org"
 export const news = "http://feeds.bbci.co.uk/news/rss.xml#"

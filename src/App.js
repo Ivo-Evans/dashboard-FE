@@ -5,7 +5,8 @@ import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
 import { Photos } from "./pages/Photos";
 import { Todos } from "./pages/Todos";
-import { Sport } from "./pages/Sport"
+import { Sport } from "./pages/Sport";
+import { News } from "./pages/News"
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 import useWeather from "./hooks/useWeather";
@@ -26,8 +27,7 @@ function App() {
 
   const [news, setNews] = React.useState({})
   useNews(setNews, loggedIn)
-
-
+    
   const [currentTeam, setCurrentTeam] = React.useState("")
 
   const [teamNames, setTeamNames] = React.useState([])
@@ -56,6 +56,10 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
+
+            <ProtectedRoute path="/news" setLoggedIn={setLoggedIn}>
+                <News news={news} />
+            </ProtectedRoute>
 
           <ProtectedRoute path="/sports" setLoggedIn={setLoggedIn}>
             <Sport 
