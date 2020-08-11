@@ -1,3 +1,24 @@
+# Dashboard
+
+This is the frontend of a dashboard app. The frontend is deployed at https://laughing-agnesi-d3cb6a.netlify.app/ and you can log in with the user `admin` (who has no special privileges) and password `password`, or create your own user. 
+
+It's provided a useful opportunity to practice a very broad range of web-development skills, including:
+
+- sourcing data
+  - creating and consuming JSON APIs
+  - Using RSS
+  - Working with CSV and XML
+  - Some web-scraping
+
+- Using modern React
+- Using browser APIs like geolocation and local storage
+- Handling file upload and download
+
+- Working with Postgres and writing raw SQL queries
+
+- Structuring a complex project without relying on anyone else. At time of writing frontend+backend is ~25,000 lines. It's been interesting to design a project on this scale without anybody else (which is unusual for me - usually I work in teams), and owning every moving piece in the application.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
